@@ -26,12 +26,19 @@ class MainTabBarController: UITabBarController {
         configureViewControlers()
     }
     
+//    MARK: - Selectors
+    
+    @objc func actionButtonTapped() {
+        print(123)
+    }
+    
 //    MARK: - Helpers
     
     func configureUI() {
         view.addSubview(actionButton)
         actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 64, paddingRight: 16, width: 56, height: 56)
         actionButton.layer.cornerRadius = 56/2
+        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
     
     func configureTabBar() {

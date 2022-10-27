@@ -59,36 +59,17 @@ class RegistrationController: UIViewController {
         
         guard let profileImage = profileImage else { return }
         
-        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
-        let filename = NSUUID().uuidString
-        let storageRef = STORAGE_PROFILE_IMAGES.child(filename)
+        let authCredentials = AuthCredentials(email: emailInput,
+                                              password: passwordInput,
+                                              name: nameInput,
+                                              userName: userNameInput,
+                                              profileImage: profileImage)
         
-        Auth.auth().createUser(withEmail: emailInput, password: passwordInput) { result, error in
-            if let error = error {
-                print("DEBUG: ERROR \(error.localizedDescription)")
-                return
-            }
-            
-            storageRef.putData(imageData, metadata: nil) { meta, error in
-                storageRef.downloadURL { url, error in
-                    
-                    guard let profileImageUrl = url?.absoluteString else { return }
-                    guard let uid = result?.user.uid else { return }
-                    
-                    let values = ["email": emailInput,
-                                  "username": userNameInput,
-                                  "fullname": nameInput,
-                                  "profileImageUrl": profileImageUrl]
-                    
-                    REF_USERS.child(uid).updateChildValues(values) { error, ref in
-                        print("DEBUG: Successfully update user info")
-                    }
-                   
-                }
-            }
+        AuthService.shared.registerUser(authCredentials: authCredentials) { error, ref in
+            print("DEBUG: SIGN UP SUCCESSFUL...")
+            let vc = MainTabBarController()
             
         }
-
     }
     
     @objc func addPhoto() {

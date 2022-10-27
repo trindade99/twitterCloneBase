@@ -57,6 +57,7 @@
 		F6AC2810290AA25F001FA300 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F6AC280F290AA25F001FA300 /* FirebaseStorageCombine-Community */; };
 		F6AC2814290AC689001FA300 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2813290AC689001FA300 /* Constants.swift */; };
 		F6AC2816290AC79D001FA300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6AC2815290AC79D001FA300 /* GoogleService-Info.plist */; };
+		F6AC2818290AD1D2001FA300 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2817290AD1D2001FA300 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		F6AC27D6290A92D3001FA300 /* CustomButtonWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonWithImage.swift; sourceTree = "<group>"; };
 		F6AC2813290AC689001FA300 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6AC2815290AC79D001FA300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F6AC2817290AD1D2001FA300 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 		F648F07B2909340D00F00870 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				F6AC2817290AD1D2001FA300 /* AuthService.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				F648F089290946F000F00870 /* ActionButton.swift in Sources */,
 				F6AC27D12909712F001FA300 /* CustomImageView.swift in Sources */,
 				F6AC27D329097DD0001FA300 /* InputViewWithImageView.swift in Sources */,
+				F6AC2818290AD1D2001FA300 /* AuthService.swift in Sources */,
 				F648F0992909486100F00870 /* Extentions.swift in Sources */,
 				F648F09C29096A3300F00870 /* LoginController.swift in Sources */,
 			);

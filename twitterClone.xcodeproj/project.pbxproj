@@ -27,6 +27,7 @@
 		F6AC27D12909712F001FA300 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC27D02909712F001FA300 /* CustomImageView.swift */; };
 		F6AC27D329097DD0001FA300 /* InputViewWithImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC27D229097DD0001FA300 /* InputViewWithImageView.swift */; };
 		F6AC27D5290A839D001FA300 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC27D4290A839D001FA300 /* FooterView.swift */; };
+		F6AC27D7290A92D3001FA300 /* CustomButtonWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC27D6290A92D3001FA300 /* CustomButtonWithImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		F6AC27D02909712F001FA300 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		F6AC27D229097DD0001FA300 /* InputViewWithImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewWithImageView.swift; sourceTree = "<group>"; };
 		F6AC27D4290A839D001FA300 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		F6AC27D6290A92D3001FA300 /* CustomButtonWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonWithImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				F6AC27D02909712F001FA300 /* CustomImageView.swift */,
 				F6AC27D229097DD0001FA300 /* InputViewWithImageView.swift */,
 				F6AC27D4290A839D001FA300 /* FooterView.swift */,
+				F6AC27D6290A92D3001FA300 /* CustomButtonWithImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6AC27D7290A92D3001FA300 /* CustomButtonWithImage.swift in Sources */,
 				F648F085290937DE00F00870 /* NotificationsController.swift in Sources */,
 				F6AC27D5290A839D001FA300 /* FooterView.swift in Sources */,
 				F648F0872909381700F00870 /* ConversationsController.swift in Sources */,

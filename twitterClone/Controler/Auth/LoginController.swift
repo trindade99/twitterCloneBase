@@ -24,11 +24,21 @@ class LoginController: UIViewController {
         
     }
 //    MARK: - Selectors
+    @objc func loginAction() {
+        print("login")
+    }
+    
+    @objc func signupAction() {
+       let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
 //    MARK: - Helpers
     
     func configureUI() {
         view.backgroundColor = .mainBlue
         navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = .white
         
         view.addSubview(logoImageView)
         logoImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
@@ -62,7 +72,7 @@ class LoginController: UIViewController {
         loginButton.centerX(inView: view, topAnchor: stack.bottomAnchor, paddingTop: 25)
         loginButton.setDimensions(width: 300, height: 50)
         loginButton.layer.cornerRadius = 5
-//        loginButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
         loginButton.changeStyle(buttonStyle: .titleBlue)
         loginButton.changeTitle(title: "LogIn")
         
@@ -72,6 +82,7 @@ class LoginController: UIViewController {
         let footerButton = ActionButton()
         footerButton.changeStyle(buttonStyle: .onlyTitle)
         footerButton.changeTitle(title: "Sign Up")
+        footerButton.addTarget(self, action: #selector(signupAction), for: .touchUpInside)
         footerView.button = footerButton
         footerView.configure()
     }

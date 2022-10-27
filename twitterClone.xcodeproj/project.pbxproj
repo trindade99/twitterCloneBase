@@ -22,6 +22,11 @@
 		F648F0872909381700F00870 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F648F0862909381700F00870 /* ConversationsController.swift */; };
 		F648F089290946F000F00870 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F648F088290946F000F00870 /* ActionButton.swift */; };
 		F648F0992909486100F00870 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F648F0982909486100F00870 /* Extentions.swift */; };
+		F648F09C29096A3300F00870 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F648F09B29096A3300F00870 /* LoginController.swift */; };
+		F648F09E29096AB700F00870 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F648F09D29096AB700F00870 /* RegistrationController.swift */; };
+		F6AC27D12909712F001FA300 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC27D02909712F001FA300 /* CustomImageView.swift */; };
+		F6AC27D329097DD0001FA300 /* InputViewWithImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC27D229097DD0001FA300 /* InputViewWithImageView.swift */; };
+		F6AC27D5290A839D001FA300 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC27D4290A839D001FA300 /* FooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,11 @@
 		F648F0862909381700F00870 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		F648F088290946F000F00870 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		F648F0982909486100F00870 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		F648F09B29096A3300F00870 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		F648F09D29096AB700F00870 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		F6AC27D02909712F001FA300 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		F6AC27D229097DD0001FA300 /* InputViewWithImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewWithImageView.swift; sourceTree = "<group>"; };
+		F6AC27D4290A839D001FA300 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				F648F088290946F000F00870 /* ActionButton.swift */,
+				F6AC27D02909712F001FA300 /* CustomImageView.swift */,
+				F6AC27D229097DD0001FA300 /* InputViewWithImageView.swift */,
+				F6AC27D4290A839D001FA300 /* FooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +197,7 @@
 		F648F07D2909349500F00870 /* Controler */ = {
 			isa = PBXGroup;
 			children = (
+				F648F09A29096A1800F00870 /* Auth */,
 				F648F07E290934F800F00870 /* MainTabBarController.swift */,
 				F648F080290936C700F00870 /* FeedController.swift */,
 				F648F0822909378500F00870 /* ExploreController.swift */,
@@ -191,6 +205,15 @@
 				F648F0862909381700F00870 /* ConversationsController.swift */,
 			);
 			path = Controler;
+			sourceTree = "<group>";
+		};
+		F648F09A29096A1800F00870 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F648F09B29096A3300F00870 /* LoginController.swift */,
+				F648F09D29096AB700F00870 /* RegistrationController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,14 +348,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F648F085290937DE00F00870 /* NotificationsController.swift in Sources */,
+				F6AC27D5290A839D001FA300 /* FooterView.swift in Sources */,
 				F648F0872909381700F00870 /* ConversationsController.swift in Sources */,
 				F648F04929092B6D00F00870 /* AppDelegate.swift in Sources */,
 				F648F04B29092B6D00F00870 /* SceneDelegate.swift in Sources */,
 				F648F081290936C700F00870 /* FeedController.swift in Sources */,
 				F648F0832909378500F00870 /* ExploreController.swift in Sources */,
+				F648F09E29096AB700F00870 /* RegistrationController.swift in Sources */,
 				F648F07F290934F800F00870 /* MainTabBarController.swift in Sources */,
 				F648F089290946F000F00870 /* ActionButton.swift in Sources */,
+				F6AC27D12909712F001FA300 /* CustomImageView.swift in Sources */,
+				F6AC27D329097DD0001FA300 /* InputViewWithImageView.swift in Sources */,
 				F648F0992909486100F00870 /* Extentions.swift in Sources */,
+				F648F09C29096A3300F00870 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

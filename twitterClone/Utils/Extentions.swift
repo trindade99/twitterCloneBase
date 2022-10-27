@@ -57,8 +57,8 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        if let topAnchor = topAnchor, let paddingTop = paddingTop {
-            self.topAnchor.constraint(equalTo: topAnchor, constant: paddingTop).isActive = true
+        if let topAnchor = topAnchor {
+            self.topAnchor.constraint(equalTo: topAnchor, constant: paddingTop ?? 0).isActive = true
         }
     }
     
@@ -66,8 +66,8 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        if let leftAnchor = leftAnchor, let paddingLeft = paddingLeft {
-            self.leftAnchor.constraint(equalTo: leftAnchor, constant: paddingLeft).isActive = true
+        if let leftAnchor = leftAnchor {
+            self.leftAnchor.constraint(equalTo: leftAnchor, constant: paddingLeft ?? 0).isActive = true
         }
     }
     
@@ -81,6 +81,22 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         anchor(top: view.topAnchor,left: view.leftAnchor,
                bottom: view.bottomAnchor, right: view.rightAnchor)
+    }
+}
+
+extension UIViewController {
+    func templateNavigationController(image: UIImage?, rootViewController: UIViewController) -> UINavigationController {
+        let nav = UINavigationController(rootViewController: rootViewController)
+        nav.navigationBar.isTranslucent = false
+        if let image = image {
+            nav.tabBarItem.image = image
+        }
+        
+        let standardAppearance = UINavigationBarAppearance()
+        standardAppearance.backgroundColor = .white
+        nav.navigationBar.scrollEdgeAppearance = standardAppearance
+        
+        return nav
     }
 }
 

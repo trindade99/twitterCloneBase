@@ -28,8 +28,18 @@ class RegistrationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        //Looks for single or multiple taps.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     //    MARK: - Selectors
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     @objc func loginRegisterAction() {
         navigationController?.popViewController(animated: true)
     }
@@ -48,7 +58,10 @@ class RegistrationController: UIViewController {
         guard let userNameInput = userNameInput else { return }
         
         guard let profileImage = profileImage else { return }
-
+        
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
+        let filename = NSUUID().uuidString
+        let storageRef = STORAGE_PROFILE_IMAGES.child(filename)
         
         Auth.auth().createUser(withEmail: emailInput, password: passwordInput) { result, error in
             if let error = error {
@@ -56,13 +69,24 @@ class RegistrationController: UIViewController {
                 return
             }
             
-            guard let uid = result?.user.uid else { return }
-            let values = ["email": emailInput,"username": userNameInput, "fullname": nameInput]
-            let ref = Database.database().reference().child("users").child(uid)
-            
-           ref.updateChildValues(values) { error, ref in
-                print("DEBUG: Successfully update user info")
+            storageRef.putData(imageData, metadata: nil) { meta, error in
+                storageRef.downloadURL { url, error in
+                    
+                    guard let profileImageUrl = url?.absoluteString else { return }
+                    guard let uid = result?.user.uid else { return }
+                    
+                    let values = ["email": emailInput,
+                                  "username": userNameInput,
+                                  "fullname": nameInput,
+                                  "profileImageUrl": profileImageUrl]
+                    
+                    REF_USERS.child(uid).updateChildValues(values) { error, ref in
+                        print("DEBUG: Successfully update user info")
+                    }
+                   
+                }
             }
+            
         }
 
     }

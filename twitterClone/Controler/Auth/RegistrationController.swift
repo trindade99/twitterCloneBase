@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationController: UIViewController {
     
@@ -20,16 +21,13 @@ class RegistrationController: UIViewController {
     private let footerView = FooterView()
 
     private let imagePicker = UIImagePickerController()
+    private var profileImage: UIImage?
     
         
     //    MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-
-//
         configureUI()
-            
     }
     //    MARK: - Selectors
     @objc func loginRegisterAction() {
@@ -37,7 +35,36 @@ class RegistrationController: UIViewController {
     }
         
     @objc func signupRegisterAction() {
-        print("login")
+        
+        
+        let emailInput = inputViewValidator(inputView: inputViewEmail)
+        let passwordInput = inputViewValidator(inputView: inputViewPassword)
+        let nameInput = inputViewValidator(inputView: inputViewName)
+        let userNameInput = inputViewValidator(inputView: inputViewUserName)
+        
+        guard let emailInput = emailInput else { return }
+        guard let passwordInput = passwordInput else { return }
+        guard let nameInput = nameInput else { return }
+        guard let userNameInput = userNameInput else { return }
+        
+        guard let profileImage = profileImage else { return }
+
+        
+        Auth.auth().createUser(withEmail: emailInput, password: passwordInput) { result, error in
+            if let error = error {
+                print("DEBUG: ERROR \(error.localizedDescription)")
+                return
+            }
+            
+            guard let uid = result?.user.uid else { return }
+            let values = ["email": emailInput,"username": userNameInput, "fullname": nameInput]
+            let ref = Database.database().reference().child("users").child(uid)
+            
+           ref.updateChildValues(values) { error, ref in
+                print("DEBUG: Successfully update user info")
+            }
+        }
+
     }
     
     @objc func addPhoto() {
@@ -45,6 +72,15 @@ class RegistrationController: UIViewController {
     }
         
     //    MARK: - Helpers
+    
+    func inputViewValidator(inputView: InputViewWithImageView) -> String? {
+        if let inputViewText = inputView.textField?.text, inputViewText != "" {
+            return inputViewText
+        }else {
+            inputView.textField?.attributedPlaceholder = NSAttributedString(string: inputView.textField?.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            return nil
+        }
+    }
         
     func configureUI() {
         view.backgroundColor = .mainBlue
@@ -57,7 +93,6 @@ class RegistrationController: UIViewController {
         avatarImageView.configureImage(image: UIImage(named: "plus_photo")?.withRenderingMode(.alwaysTemplate) ?? UIImage())
         avatarImageView.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor)
         avatarImageView.setDimensions(width: 150, height: 150)
-//        avatarImageView.layer.cornerRadius = 150/2
         avatarImageView.addTarget(self, action: #selector(addPhoto), for: .touchUpInside)
             
         let stack = UIStackView(arrangedSubviews: [inputViewEmail, inputViewPassword, inputViewName, inputViewUserName])
@@ -122,6 +157,7 @@ class RegistrationController: UIViewController {
     func updateProfileImage(image: UIImage) {
         avatarImageView.chosed = true
         avatarImageView.configureImage(image: image)
+        profileImage = image
     }
     
 }

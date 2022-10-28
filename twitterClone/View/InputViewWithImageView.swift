@@ -49,4 +49,13 @@ class InputViewWithImageView: UIView {
         
 
     }
+    
+    func inputViewValidator() -> String? {
+        if let inputViewText = self.textField?.text, inputViewText != "" {
+            return inputViewText
+        }else {
+            self.textField?.attributedPlaceholder = NSAttributedString(string: self.textField?.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            return nil
+        }
+    }
 }

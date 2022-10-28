@@ -19,6 +19,24 @@
       }
     },
     {
+      "identity" : "ezhttp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/asaday/EzHTTP.git",
+      "state" : {
+        "revision" : "1e7be22a1acdbad5779ace92a1075391c517cf35",
+        "version" : "3.6.2"
+      }
+    },
+    {
+      "identity" : "ezimageloader",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/asaday/EzImageLoader.git",
+      "state" : {
+        "revision" : "c6a969b3e3d316648e493cc2d7d3a3da7fc7b5c5",
+        "version" : "3.6.0"
+      }
+    },
+    {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",

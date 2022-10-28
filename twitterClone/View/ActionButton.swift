@@ -66,6 +66,17 @@ class ActionButton: UIButton {
                 super.titleLabel?.adjustsFontSizeToFitWidth = true
                 
             }
+        case .profileImage:
+            if let image = image {
+                super.setImage(image, for: .normal)
+                super.imageView?.contentMode = .scaleAspectFill
+                super.imageView?.clipsToBounds = true
+            }
+            super.tintColor = .white
+            super.backgroundColor = .mainBlue
+            super.layoutIfNeeded()
+            super.layer.cornerRadius = super.frame.size.height/2
+            super.layer.masksToBounds = true
         }
         
     }
@@ -78,5 +89,6 @@ extension ActionButton {
         case imageWhite
         case titleBlue
         case onlyTitle
+        case profileImage
     }
 }

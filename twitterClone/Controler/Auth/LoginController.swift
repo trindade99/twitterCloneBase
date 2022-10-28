@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
     
@@ -25,7 +26,24 @@ class LoginController: UIViewController {
     }
 //    MARK: - Selectors
     @objc func loginAction() {
-        print("login")
+        
+        let email = inputViewEmail.inputViewValidator()
+        let password = inputViewPassword.inputViewValidator()
+        
+        guard let email = email else { return }
+        guard let password = password else { return }
+        
+        AuthService.shared.logUserIn(withEmail: email, password: password, completion: { result, error in
+            if let error = error {
+                print("DEBUG: Error logging in \(error.localizedDescription)")
+                return
+            }
+
+            self.returnToKeyWindow(rootViewController: self)
+            
+            print("DEBUG: Successful log in")
+            
+        })
     }
     
     @objc func signupAction() {

@@ -6,11 +6,19 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabBarController: UITabBarController {
     
 //    MARK: - Properties
     
+    var user: User? {
+        didSet {
+            configureUI()
+            configureTabBar()
+            configureViewControlers()
+        }
+    }
     let actionButton = ActionButton()
     
     
@@ -21,11 +29,41 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureUI()
-        
-        configureTabBar()
-        configureViewControlers()
+//        logUSerOut()
+        view.backgroundColor = .mainBlue
+        authenticateUserAndConfigUI()
     }
+//    MARK: - API
+    
+    func fetchUser() {
+        UserService.shared.fetchUser { user in
+            self.user = user
+        }
+    }
+    
+    func authenticateUserAndConfigUI() {
+        if Auth.auth().currentUser == nil {
+            print("DEBUG: User not logged in")
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: LoginController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        }else {
+            print("DEBUG: User logged in")
+            fetchUser()
+        }
+    }
+    
+    func logUSerOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print("DEBUG: failed to sign out with error \(error.localizedDescription)")
+
+        }
+    }
+    
     
 //    MARK: - Selectors
     
@@ -59,7 +97,10 @@ class MainTabBarController: UITabBarController {
     
     func configureViewControlers() {
         
+        guard let user = self.user else { return }
+
         let feed = FeedController()
+        feed.user = user
         let navFeed = feed.templateNavigationController(image: UIImage(named: "home_unselected"), rootViewController: feed)
         
         let explore = ExploreController()

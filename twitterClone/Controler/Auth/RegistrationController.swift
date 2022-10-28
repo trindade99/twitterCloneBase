@@ -47,10 +47,10 @@ class RegistrationController: UIViewController {
     @objc func signupRegisterAction() {
         
         
-        let emailInput = inputViewValidator(inputView: inputViewEmail)
-        let passwordInput = inputViewValidator(inputView: inputViewPassword)
-        let nameInput = inputViewValidator(inputView: inputViewName)
-        let userNameInput = inputViewValidator(inputView: inputViewUserName)
+        let emailInput = inputViewEmail.inputViewValidator()
+        let passwordInput = inputViewPassword.inputViewValidator()
+        let nameInput = inputViewName.inputViewValidator()
+        let userNameInput = inputViewUserName.inputViewValidator()
         
         guard let emailInput = emailInput else { return }
         guard let passwordInput = passwordInput else { return }
@@ -66,8 +66,13 @@ class RegistrationController: UIViewController {
                                               profileImage: profileImage)
         
         AuthService.shared.registerUser(authCredentials: authCredentials) { error, ref in
+            if let error = error {
+                print("DEBUG: Error logging in \(error.localizedDescription)")
+                return
+            }
+            
             print("DEBUG: SIGN UP SUCCESSFUL...")
-            let vc = MainTabBarController()
+            self.returnToKeyWindow(rootViewController: self)
             
         }
     }
@@ -77,15 +82,6 @@ class RegistrationController: UIViewController {
     }
         
     //    MARK: - Helpers
-    
-    func inputViewValidator(inputView: InputViewWithImageView) -> String? {
-        if let inputViewText = inputView.textField?.text, inputViewText != "" {
-            return inputViewText
-        }else {
-            inputView.textField?.attributedPlaceholder = NSAttributedString(string: inputView.textField?.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            return nil
-        }
-    }
         
     func configureUI() {
         view.backgroundColor = .mainBlue

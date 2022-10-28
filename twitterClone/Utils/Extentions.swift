@@ -98,6 +98,16 @@ extension UIViewController {
         
         return nav
     }
+    
+    func returnToKeyWindow(rootViewController: UIViewController) {
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        let rootVC = window?.rootViewController
+        guard let tab = rootVC as? MainTabBarController else { return }
+        tab.authenticateUserAndConfigUI()
+        rootViewController.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension UIColor {

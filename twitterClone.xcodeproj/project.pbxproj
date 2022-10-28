@@ -58,6 +58,9 @@
 		F6AC2814290AC689001FA300 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2813290AC689001FA300 /* Constants.swift */; };
 		F6AC2816290AC79D001FA300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6AC2815290AC79D001FA300 /* GoogleService-Info.plist */; };
 		F6AC2818290AD1D2001FA300 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2817290AD1D2001FA300 /* AuthService.swift */; };
+		F6AC2836290BE917001FA300 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2835290BE917001FA300 /* UserService.swift */; };
+		F6AC2838290BEC78001FA300 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2837290BEC78001FA300 /* UserModel.swift */; };
+		F6AC2857290BF660001FA300 /* EzImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = F6AC2856290BF660001FA300 /* EzImageLoader */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,8 @@
 		F6AC2813290AC689001FA300 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6AC2815290AC79D001FA300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6AC2817290AD1D2001FA300 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		F6AC2835290BE917001FA300 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F6AC2837290BEC78001FA300 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +132,7 @@
 				F6AC27EC290AA25F001FA300 /* FirebaseCrashlytics in Frameworks */,
 				F6AC280C290AA25F001FA300 /* FirebaseRemoteConfigSwift in Frameworks */,
 				F6AC27FE290AA25F001FA300 /* FirebaseInAppMessaging-Beta in Frameworks */,
+				F6AC2857290BF660001FA300 /* EzImageLoader in Frameworks */,
 				F6AC27F0290AA25F001FA300 /* FirebaseDatabaseSwift in Frameworks */,
 				F6AC27FA290AA25F001FA300 /* FirebaseFunctions in Frameworks */,
 				F6AC2810290AA25F001FA300 /* FirebaseStorageCombine-Community in Frameworks */,
@@ -220,6 +226,7 @@
 		F648F078290933BE00F00870 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F6AC2837290BEC78001FA300 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				F6AC2817290AD1D2001FA300 /* AuthService.swift */,
+				F6AC2835290BE917001FA300 /* UserService.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -326,6 +334,7 @@
 				F6AC280B290AA25F001FA300 /* FirebaseRemoteConfigSwift */,
 				F6AC280D290AA25F001FA300 /* FirebaseStorage */,
 				F6AC280F290AA25F001FA300 /* FirebaseStorageCombine-Community */,
+				F6AC2856290BF660001FA300 /* EzImageLoader */,
 			);
 			productName = twitterClone;
 			productReference = F648F04529092B6D00F00870 /* twitterClone.app */;
@@ -401,6 +410,7 @@
 			mainGroup = F648F03C29092B6D00F00870;
 			packageReferences = (
 				F6AC27DA290AA25F001FA300 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F6AC2855290BF660001FA300 /* XCRemoteSwiftPackageReference "EzImageLoader" */,
 			);
 			productRefGroup = F648F04629092B6D00F00870 /* Products */;
 			projectDirPath = "";
@@ -448,6 +458,7 @@
 			files = (
 				F6AC27D7290A92D3001FA300 /* CustomButtonWithImage.swift in Sources */,
 				F648F085290937DE00F00870 /* NotificationsController.swift in Sources */,
+				F6AC2836290BE917001FA300 /* UserService.swift in Sources */,
 				F6AC27D5290A839D001FA300 /* FooterView.swift in Sources */,
 				F648F0872909381700F00870 /* ConversationsController.swift in Sources */,
 				F648F04929092B6D00F00870 /* AppDelegate.swift in Sources */,
@@ -460,6 +471,7 @@
 				F648F089290946F000F00870 /* ActionButton.swift in Sources */,
 				F6AC27D12909712F001FA300 /* CustomImageView.swift in Sources */,
 				F6AC27D329097DD0001FA300 /* InputViewWithImageView.swift in Sources */,
+				F6AC2838290BEC78001FA300 /* UserModel.swift in Sources */,
 				F6AC2818290AD1D2001FA300 /* AuthService.swift in Sources */,
 				F648F0992909486100F00870 /* Extentions.swift in Sources */,
 				F648F09C29096A3300F00870 /* LoginController.swift in Sources */,
@@ -810,6 +822,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		F6AC2855290BF660001FA300 /* XCRemoteSwiftPackageReference "EzImageLoader" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/asaday/EzImageLoader.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -947,6 +967,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F6AC27DA290AA25F001FA300 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		F6AC2856290BF660001FA300 /* EzImageLoader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6AC2855290BF660001FA300 /* XCRemoteSwiftPackageReference "EzImageLoader" */;
+			productName = EzImageLoader;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

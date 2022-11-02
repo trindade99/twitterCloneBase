@@ -85,6 +85,20 @@ extension UIView {
 }
 
 extension UIViewController {
+    
+    func navigationControlerNavigationController(fullScreen: Bool ,rootViewController: UIViewController) -> UINavigationController {
+        let nav = UINavigationController(rootViewController: rootViewController)
+        nav.navigationBar.isTranslucent = false
+        let standardAppearance = UINavigationBarAppearance()
+        standardAppearance.backgroundColor = .white
+        nav.navigationBar.scrollEdgeAppearance = standardAppearance
+        if fullScreen {
+            nav.modalPresentationStyle = .fullScreen
+        }
+        
+        return nav
+    }
+    
     func templateNavigationController(image: UIImage?, rootViewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.navigationBar.isTranslucent = false
@@ -106,7 +120,7 @@ extension UIViewController {
         let rootVC = window?.rootViewController
         guard let tab = rootVC as? MainTabBarController else { return }
         tab.authenticateUserAndConfigUI()
-        rootViewController.dismiss(animated: true, completion: nil)
+//        rootViewController.dismiss(animated: true, completion: nil)
     }
 }
 

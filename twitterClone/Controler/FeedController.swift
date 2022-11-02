@@ -11,34 +11,38 @@ import EzImageLoader
 class FeedController: UIViewController {
 //    MARK: - Properties
     let profileImageButtom = ActionButton()
-    var user: User? 
+    var user: User? {
+        didSet {
+            print("DEBUG: loaded user in feedController")
+        }
+    }
         
 //    MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
+        configureHeader()
     }
         
 //    MARK: - Helpers
     
     func configureUI() {
         view.backgroundColor = .white
-        
+
+    }
+    
+    func configureHeader() {
         profileImageButtom.setDimensions(width: 32, height: 32)
         profileImageButtom.changeStyle(buttonStyle: .profileImage)
-        profileImageButtom.changeImage(image: ImageLoader.getASync(user?.profileImageUrl ?? ""))
+        profileImageButtom.changeImage(image: ImageLoader.getASync(user?.profileImageUrl ?? "")?.withRenderingMode(.alwaysOriginal))
         profileImageButtom.layer.cornerRadius = 32/2
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageButtom)
-        
         
         let imageView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
         imageView.contentMode = .scaleAspectFit
+        imageView.setDimensions(width: 44, height: 44)
         navigationItem.titleView = imageView
-//        imageView.centerX(inView: navigationItem.titleView ?? self.view, topAnchor: navigationItem.titleView?.safeAreaLayoutGuide.topAnchor, paddingTop: 0)
-        
-        
     }
 
 }

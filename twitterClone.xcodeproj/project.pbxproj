@@ -61,6 +61,8 @@
 		F6AC2836290BE917001FA300 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2835290BE917001FA300 /* UserService.swift */; };
 		F6AC2838290BEC78001FA300 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2837290BEC78001FA300 /* UserModel.swift */; };
 		F6AC2857290BF660001FA300 /* EzImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = F6AC2856290BF660001FA300 /* EzImageLoader */; };
+		F6AC2859290C1ABB001FA300 /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2858290C1ABB001FA300 /* UploadTweetController.swift */; };
+		F6AC285B290C2A92001FA300 /* TextViewWithPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC285A290C2A92001FA300 /* TextViewWithPlaceHolder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		F6AC2817290AD1D2001FA300 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F6AC2835290BE917001FA300 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F6AC2837290BEC78001FA300 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		F6AC2858290C1ABB001FA300 /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
+		F6AC285A290C2A92001FA300 /* TextViewWithPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceHolder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,7 @@
 				F6AC27D229097DD0001FA300 /* InputViewWithImageView.swift */,
 				F6AC27D4290A839D001FA300 /* FooterView.swift */,
 				F6AC27D6290A92D3001FA300 /* CustomButtonWithImage.swift */,
+				F6AC285A290C2A92001FA300 /* TextViewWithPlaceHolder.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				F648F0822909378500F00870 /* ExploreController.swift */,
 				F648F084290937DE00F00870 /* NotificationsController.swift */,
 				F648F0862909381700F00870 /* ConversationsController.swift */,
+				F6AC2858290C1ABB001FA300 /* UploadTweetController.swift */,
 			);
 			path = Controler;
 			sourceTree = "<group>";
@@ -472,6 +478,8 @@
 				F6AC27D12909712F001FA300 /* CustomImageView.swift in Sources */,
 				F6AC27D329097DD0001FA300 /* InputViewWithImageView.swift in Sources */,
 				F6AC2838290BEC78001FA300 /* UserModel.swift in Sources */,
+				F6AC285B290C2A92001FA300 /* TextViewWithPlaceHolder.swift in Sources */,
+				F6AC2859290C1ABB001FA300 /* UploadTweetController.swift in Sources */,
 				F6AC2818290AD1D2001FA300 /* AuthService.swift in Sources */,
 				F648F0992909486100F00870 /* Extentions.swift in Sources */,
 				F648F09C29096A3300F00870 /* LoginController.swift in Sources */,

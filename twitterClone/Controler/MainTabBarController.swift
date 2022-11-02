@@ -15,6 +15,7 @@ class MainTabBarController: UITabBarController {
     var user: User? {
         didSet {
             configureUI()
+            dismissOlderController()
             configureTabBar()
             configureViewControlers()
         }
@@ -30,7 +31,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
 //        logUSerOut()
-        view.backgroundColor = .mainBlue
+//        view.backgroundColor = .mainBlue
         authenticateUserAndConfigUI()
     }
 //    MARK: - API
@@ -68,16 +69,23 @@ class MainTabBarController: UITabBarController {
 //    MARK: - Selectors
     
     @objc func actionButtonTapped() {
-//        switch actionButton.buttonStyle {
-//        case .blue:
-//            actionButton.changeStyle(buttonStyle: .white)
-//        case .white:
-//            actionButton.changeStyle(buttonStyle: .blue)
-//        }
-        
+        guard let user = self.user else { return }
+        let vc = UploadTweetController(user: user)
+        let nav = navigationControlerNavigationController(fullScreen: true, rootViewController: vc)
+        present(nav, animated: true, completion: nil)
     }
     
 //    MARK: - Helpers
+    
+    func dismissOlderController() {
+        let scenes = UIApplication.shared.connectedScenes
+        for scene in scenes {
+            let windowScene = scene as? UIWindowScene
+            let window = windowScene?.windows.first
+            let rootVC = window?.rootViewController
+            rootVC?.dismiss(animated: true)
+        }
+    }
     
     func configureUI() {
         view.addSubview(actionButton)

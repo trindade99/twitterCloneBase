@@ -10,9 +10,11 @@ import UIKit
 
 class ActionButton: UIButton {
     
-    var buttonStyle: style = .imageWhite
-    var image: UIImage? = nil
-    var title: String? = nil
+    lazy var buttonStyle: style = .imageWhite
+    lazy var image: UIImage? = nil
+    lazy var title: String? = nil
+    lazy var colorBG: UIColor? = nil
+    lazy var colorTitle: UIColor? = nil
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,6 +41,17 @@ class ActionButton: UIButton {
         _init()
     }
     
+    func changeColors(bgColor: UIColor?, textColor: UIColor?) {
+        if let bgColor = bgColor {
+            self.colorBG = bgColor
+        }
+        if let textColor = textColor {
+            self.colorTitle = textColor
+        }
+
+        _init()
+    }
+    
     private func _init() {
         switch buttonStyle {
         case .imageWhite:
@@ -47,12 +60,16 @@ class ActionButton: UIButton {
             if let image = image {
                 super.setImage(image, for: .normal)
             }
-        case .titleBlue:
-            super.tintColor = .mainBlue
-            super.backgroundColor = .white
+        case .titleColor:
+            if let colorBG = colorBG {
+                super.backgroundColor = colorBG
+            }
             if let title = title {
                 super.setTitle(title, for: .normal)
-                super.setTitleColor(.mainBlue, for: .normal)
+                if let colorTitle = colorTitle {
+                    super.tintColor = colorTitle
+                    super.setTitleColor(colorTitle, for: .normal)
+                }
                 super.titleLabel?.adjustsFontSizeToFitWidth = true
                 
             }
@@ -87,7 +104,7 @@ class ActionButton: UIButton {
 extension ActionButton {
     enum style {
         case imageWhite
-        case titleBlue
+        case titleColor
         case onlyTitle
         case profileImage
     }

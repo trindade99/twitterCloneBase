@@ -91,7 +91,8 @@ class LoginController: UIViewController {
         loginButton.setDimensions(width: 300, height: 50)
         loginButton.layer.cornerRadius = 5
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
-        loginButton.changeStyle(buttonStyle: .titleBlue)
+        loginButton.changeStyle(buttonStyle: .titleColor)
+        loginButton.changeColors(bgColor: .white, textColor: .mainBlue)
         loginButton.changeTitle(title: "LogIn")
         
         view.addSubview(footerView)

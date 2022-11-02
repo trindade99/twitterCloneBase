@@ -13,7 +13,7 @@ class RegistrationController: UIViewController {
     //    MARK: - Properties
         
     private let avatarImageView = CustomButtonWithImage()
-    private let loginButton = ActionButton()
+    private let registerButton = ActionButton()
     private let inputViewEmail = InputViewWithImageView()
     private let inputViewPassword = InputViewWithImageView()
     private let inputViewName = InputViewWithImageView()
@@ -136,13 +136,14 @@ class RegistrationController: UIViewController {
         inputViewUserName.divider = true
         inputViewUserName.configure()
             
-        view.addSubview(loginButton)
-        loginButton.centerX(inView: view, topAnchor: stack.bottomAnchor, paddingTop: 25)
-        loginButton.setDimensions(width: 300, height: 50)
-        loginButton.layer.cornerRadius = 5
-        loginButton.addTarget(self, action: #selector(signupRegisterAction), for: .touchUpInside)
-        loginButton.changeStyle(buttonStyle: .titleBlue)
-        loginButton.changeTitle(title: "Sign Up")
+        view.addSubview(registerButton)
+        registerButton.centerX(inView: view, topAnchor: stack.bottomAnchor, paddingTop: 25)
+        registerButton.setDimensions(width: 300, height: 50)
+        registerButton.layer.cornerRadius = 5
+        registerButton.addTarget(self, action: #selector(signupRegisterAction), for: .touchUpInside)
+        registerButton.changeStyle(buttonStyle: .titleColor)
+        registerButton.changeColors(bgColor: .white, textColor: .mainBlue)
+        registerButton.changeTitle(title: "Sign Up")
             
         view.addSubview(footerView)
         footerView.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 65, paddingBottom: 1, paddingRight: 65, height: 50)

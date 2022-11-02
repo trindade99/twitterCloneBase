@@ -107,7 +107,7 @@ class MainTabBarController: UITabBarController {
         
         guard let user = self.user else { return }
 
-        let feed = FeedController()
+        let feed = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
         feed.user = user
         let navFeed = feed.templateNavigationController(image: UIImage(named: "home_unselected"), rootViewController: feed)
         

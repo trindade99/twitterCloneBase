@@ -24,9 +24,6 @@ struct TweetFormat {
                 "retweets": retweets,
                 "caption": caption]
     }
-//    var nsDictionary: NSDictionary {
-//        return dictionary as NSDictionary
-//    }
 }
 
 struct TweetService {
@@ -39,5 +36,18 @@ struct TweetService {
         let values = tweet.dictionary as [String : Any]
         
         REF_TWEETS.childByAutoId().updateChildValues(values, withCompletionBlock: completion)
+    }
+    
+    
+    func fetchTweets(completion: @escaping([Tweet]) -> Void) {
+        var tweets = [Tweet]()
+        
+        REF_TWEETS.observe(.childAdded) { snapshoot in
+            guard let dictionary = snapshoot.value as? [String: Any] else { return }
+            let tweetID = snapshoot.key
+            let tweet = Tweet(tweetID: tweetID, dictionary: dictionary)
+            tweets.append(tweet)
+            completion(tweets)
+        }
     }
 }

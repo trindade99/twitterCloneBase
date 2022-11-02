@@ -21,6 +21,7 @@ class CustomImageView: UIImageView {
     }
     
     private func _init() {
+        super.backgroundColor = .mainBlue
         super.contentMode = .scaleAspectFit
         super.clipsToBounds = true
     }

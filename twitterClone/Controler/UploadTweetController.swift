@@ -15,7 +15,7 @@ class UploadTweetController: UIViewController {
     let cancelButton = ActionButton()
     let postButton = ActionButton()
     var profileImage = CustomImageView(image: UIImage())
-    let textView = TextViewWithPlaceHolder()
+    let captionTextView = TextViewWithPlaceHolder()
     
 //    MARK: - Lifecycle
     init(user: User) {
@@ -44,7 +44,16 @@ class UploadTweetController: UIViewController {
     }
     
     @objc func postPressed(){
-        print("DEBUG: Upload logic here...")
+        if let caption = captionTextView.text, caption != "" {
+            TweetService.shared.uploadTweet(caption: caption) { error, ref in
+                if let error = error {
+                    print("DEBUG: FAILED TO UPLOAD TWEET WITH \(error.localizedDescription)")
+                    return
+                }
+                
+                self.dismiss(animated: true)
+            }
+        }
     }
     
     func configureProfileImage() {
@@ -55,7 +64,7 @@ class UploadTweetController: UIViewController {
         view.backgroundColor = .white
         configureProfileImage()
         
-        let stack = UIStackView(arrangedSubviews: [profileImage,textView])
+        let stack = UIStackView(arrangedSubviews: [profileImage,captionTextView])
         stack.axis = .horizontal
         stack.alignment = .top
         stack.spacing = 12
@@ -65,8 +74,8 @@ class UploadTweetController: UIViewController {
         profileImage.setDimensions(width: 42, height: 42)
         profileImage.layer.cornerRadius = 42/2
         
-        textView.anchor(top: stack.topAnchor, left: profileImage.rightAnchor, bottom: stack.bottomAnchor, right: stack.keyboardLayoutGuide.rightAnchor,paddingLeft: 10, paddingRight: 5)
-        textView.configureText(labelText: "What's happenig?")
+        captionTextView.anchor(top: stack.topAnchor, left: profileImage.rightAnchor, bottom: stack.bottomAnchor, right: stack.keyboardLayoutGuide.rightAnchor,paddingLeft: 10, paddingRight: 5)
+        captionTextView.configureText(labelText: "What's happenig?")
     }
     
     func configureHeader() {

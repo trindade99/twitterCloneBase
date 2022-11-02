@@ -63,6 +63,7 @@
 		F6AC2857290BF660001FA300 /* EzImageLoader in Frameworks */ = {isa = PBXBuildFile; productRef = F6AC2856290BF660001FA300 /* EzImageLoader */; };
 		F6AC2859290C1ABB001FA300 /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC2858290C1ABB001FA300 /* UploadTweetController.swift */; };
 		F6AC285B290C2A92001FA300 /* TextViewWithPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC285A290C2A92001FA300 /* TextViewWithPlaceHolder.swift */; };
+		F6AFB6932912814C00F7B4F9 /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB6922912814C00F7B4F9 /* TweetService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		F6AC2837290BEC78001FA300 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F6AC2858290C1ABB001FA300 /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
 		F6AC285A290C2A92001FA300 /* TextViewWithPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceHolder.swift; sourceTree = "<group>"; };
+		F6AFB6922912814C00F7B4F9 /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			children = (
 				F6AC2817290AD1D2001FA300 /* AuthService.swift */,
 				F6AC2835290BE917001FA300 /* UserService.swift */,
+				F6AFB6922912814C00F7B4F9 /* TweetService.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				F6AC2814290AC689001FA300 /* Constants.swift in Sources */,
 				F648F0832909378500F00870 /* ExploreController.swift in Sources */,
 				F648F09E29096AB700F00870 /* RegistrationController.swift in Sources */,
+				F6AFB6932912814C00F7B4F9 /* TweetService.swift in Sources */,
 				F648F07F290934F800F00870 /* MainTabBarController.swift in Sources */,
 				F648F089290946F000F00870 /* ActionButton.swift in Sources */,
 				F6AC27D12909712F001FA300 /* CustomImageView.swift in Sources */,

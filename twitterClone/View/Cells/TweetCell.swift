@@ -11,7 +11,11 @@ import EzImageLoader
 class TweetCell: UICollectionViewCell {
     
 //    MARK: - Properties
-//    let user: User?
+    var tweet: Tweet? {
+        didSet {
+            populateTweetData()
+        }
+    }
     
     private var profileImage = CustomImageView(image: UIImage())
     
@@ -41,13 +45,11 @@ class TweetCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//    MARK: - Selectors
     
 //    MARK: - Helpers
     private func configureUI() {
         addSubview(profileImage)
         profileImage.anchor(top: topAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 8)
-//        profileImage = CustomImageView(image: ImageLoader.getASync(user?.profileImageUrl ?? "")?.withRenderingMode(.alwaysOriginal))
         profileImage.setDimensions(width: 48, height: 48)
         profileImage.layer.cornerRadius = 48/2
         
@@ -90,7 +92,18 @@ class TweetCell: UICollectionViewCell {
         button.tintColor = .darkGray
         button.addTarget(self, action: action, for: .touchUpInside)
     }
+    
+    private func populateTweetData() {
+        guard let tweet = tweet else { return }
+        let viewModel = TweetViewModel(tweet: tweet)
+        
+        self.profileImage.image = ImageLoader.getASync(viewModel.profileImageUrl)?.withRenderingMode(.alwaysOriginal)
+        self.captionLabel.text = viewModel.caption
+        self.infoLabel.attributedText = viewModel.userInfoText
+    }
 
+    //    MARK: - Selectors
+    
     @objc func commentAction() {
         print("comment")
     }

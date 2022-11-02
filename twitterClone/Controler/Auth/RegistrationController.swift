@@ -55,7 +55,7 @@ class RegistrationController: UIViewController {
         guard let emailInput = emailInput else { return }
         guard let passwordInput = passwordInput else { return }
         guard let nameInput = nameInput else { return }
-        guard let userNameInput = userNameInput else { return }
+        guard let userNameInput = userNameInput?.lowercased() else { return }
         
         guard let profileImage = profileImage else { return }
         

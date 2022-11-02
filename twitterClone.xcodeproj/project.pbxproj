@@ -66,6 +66,7 @@
 		F6AFB6932912814C00F7B4F9 /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB6922912814C00F7B4F9 /* TweetService.swift */; };
 		F6AFB69529128EB700F7B4F9 /* TweetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB69429128EB700F7B4F9 /* TweetModel.swift */; };
 		F6AFB698291294C800F7B4F9 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB697291294C800F7B4F9 /* TweetCell.swift */; };
+		F6AFB69A2912BC1F00F7B4F9 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB6992912BC1F00F7B4F9 /* TweetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		F6AFB6922912814C00F7B4F9 /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
 		F6AFB69429128EB700F7B4F9 /* TweetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetModel.swift; sourceTree = "<group>"; };
 		F6AFB697291294C800F7B4F9 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		F6AFB6992912BC1F00F7B4F9 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 		F648F07A2909340000F00870 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F6AFB6992912BC1F00F7B4F9 /* TweetViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				F648F07F290934F800F00870 /* MainTabBarController.swift in Sources */,
 				F648F089290946F000F00870 /* ActionButton.swift in Sources */,
 				F6AC27D12909712F001FA300 /* CustomImageView.swift in Sources */,
+				F6AFB69A2912BC1F00F7B4F9 /* TweetViewModel.swift in Sources */,
 				F6AC27D329097DD0001FA300 /* InputViewWithImageView.swift in Sources */,
 				F6AC2838290BEC78001FA300 /* UserModel.swift in Sources */,
 				F6AC285B290C2A92001FA300 /* TextViewWithPlaceHolder.swift in Sources */,

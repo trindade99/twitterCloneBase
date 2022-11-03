@@ -25,6 +25,11 @@ class FeedController: UICollectionViewController {
         }
     }
 //    MARK: - Lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

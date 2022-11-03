@@ -68,6 +68,7 @@
 		F6AFB698291294C800F7B4F9 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB697291294C800F7B4F9 /* TweetCell.swift */; };
 		F6AFB69A2912BC1F00F7B4F9 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB6992912BC1F00F7B4F9 /* TweetViewModel.swift */; };
 		F6AFB69C2912D6B000F7B4F9 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB69B2912D6B000F7B4F9 /* ProfileController.swift */; };
+		F6B8ADA22913DB93002BE299 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B8ADA12913DB93002BE299 /* ProfileHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		F6AFB697291294C800F7B4F9 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		F6AFB6992912BC1F00F7B4F9 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 		F6AFB69B2912D6B000F7B4F9 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		F6B8ADA12913DB93002BE299 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 				F6AC27D4290A839D001FA300 /* FooterView.swift */,
 				F6AC27D6290A92D3001FA300 /* CustomButtonWithImage.swift */,
 				F6AC285A290C2A92001FA300 /* TextViewWithPlaceHolder.swift */,
+				F6B8ADA12913DB93002BE299 /* ProfileHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				F6AC2818290AD1D2001FA300 /* AuthService.swift in Sources */,
 				F648F0992909486100F00870 /* Extentions.swift in Sources */,
 				F648F09C29096A3300F00870 /* LoginController.swift in Sources */,
+				F6B8ADA22913DB93002BE299 /* ProfileHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

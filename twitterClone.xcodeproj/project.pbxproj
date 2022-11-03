@@ -67,6 +67,7 @@
 		F6AFB69529128EB700F7B4F9 /* TweetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB69429128EB700F7B4F9 /* TweetModel.swift */; };
 		F6AFB698291294C800F7B4F9 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB697291294C800F7B4F9 /* TweetCell.swift */; };
 		F6AFB69A2912BC1F00F7B4F9 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB6992912BC1F00F7B4F9 /* TweetViewModel.swift */; };
+		F6AFB69C2912D6B000F7B4F9 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB69B2912D6B000F7B4F9 /* ProfileController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		F6AFB69429128EB700F7B4F9 /* TweetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetModel.swift; sourceTree = "<group>"; };
 		F6AFB697291294C800F7B4F9 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		F6AFB6992912BC1F00F7B4F9 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
+		F6AFB69B2912D6B000F7B4F9 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +297,7 @@
 				F648F084290937DE00F00870 /* NotificationsController.swift */,
 				F648F0862909381700F00870 /* ConversationsController.swift */,
 				F6AC2858290C1ABB001FA300 /* UploadTweetController.swift */,
+				F6AFB69B2912D6B000F7B4F9 /* ProfileController.swift */,
 			);
 			path = Controler;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				F6AC2836290BE917001FA300 /* UserService.swift in Sources */,
 				F6AFB698291294C800F7B4F9 /* TweetCell.swift in Sources */,
 				F6AC27D5290A839D001FA300 /* FooterView.swift in Sources */,
+				F6AFB69C2912D6B000F7B4F9 /* ProfileController.swift in Sources */,
 				F648F0872909381700F00870 /* ConversationsController.swift in Sources */,
 				F648F04929092B6D00F00870 /* AppDelegate.swift in Sources */,
 				F648F04B29092B6D00F00870 /* SceneDelegate.swift in Sources */,

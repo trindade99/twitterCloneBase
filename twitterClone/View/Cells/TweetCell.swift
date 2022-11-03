@@ -8,6 +8,10 @@
 import UIKit
 import EzImageLoader
 
+protocol TweetCellDelegate: class {
+    func handleProfileImageTapped(_ cell: TweetCell)
+}
+
 class TweetCell: UICollectionViewCell {
     
 //    MARK: - Properties
@@ -17,7 +21,9 @@ class TweetCell: UICollectionViewCell {
         }
     }
     
-    private var profileImage = CustomImageView(image: UIImage())
+    weak var delegate: TweetCellDelegate?
+    
+    private lazy var profileImage = CustomImageView(image: UIImage())
     
     private let captionLabel: UILabel = {
         let label = UILabel()
@@ -48,6 +54,11 @@ class TweetCell: UICollectionViewCell {
     
 //    MARK: - Helpers
     private func configureUI() {
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(profileAction))
+        profileImage.addGestureRecognizer(tap)
+        profileImage.isUserInteractionEnabled = true
+        
         addSubview(profileImage)
         profileImage.anchor(top: topAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 8)
         profileImage.setDimensions(width: 48, height: 48)
@@ -103,6 +114,10 @@ class TweetCell: UICollectionViewCell {
     }
 
     //    MARK: - Selectors
+    
+    @objc func profileAction() {
+        delegate?.handleProfileImageTapped(self)
+    }
     
     @objc func commentAction() {
         print("comment")

@@ -69,6 +69,7 @@
 		F6AFB69A2912BC1F00F7B4F9 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB6992912BC1F00F7B4F9 /* TweetViewModel.swift */; };
 		F6AFB69C2912D6B000F7B4F9 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AFB69B2912D6B000F7B4F9 /* ProfileController.swift */; };
 		F6B8ADA22913DB93002BE299 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B8ADA12913DB93002BE299 /* ProfileHeader.swift */; };
+		F6ED90B32914160000BA01B4 /* BackHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED90B22914160000BA01B4 /* BackHeaderButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		F6AFB6992912BC1F00F7B4F9 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 		F6AFB69B2912D6B000F7B4F9 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		F6B8ADA12913DB93002BE299 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		F6ED90B22914160000BA01B4 /* BackHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackHeaderButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 				F6AC27D6290A92D3001FA300 /* CustomButtonWithImage.swift */,
 				F6AC285A290C2A92001FA300 /* TextViewWithPlaceHolder.swift */,
 				F6B8ADA12913DB93002BE299 /* ProfileHeader.swift */,
+				F6ED90B22914160000BA01B4 /* BackHeaderButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				F6AC27D5290A839D001FA300 /* FooterView.swift in Sources */,
 				F6AFB69C2912D6B000F7B4F9 /* ProfileController.swift in Sources */,
 				F648F0872909381700F00870 /* ConversationsController.swift in Sources */,
+				F6ED90B32914160000BA01B4 /* BackHeaderButton.swift in Sources */,
 				F648F04929092B6D00F00870 /* AppDelegate.swift in Sources */,
 				F648F04B29092B6D00F00870 /* SceneDelegate.swift in Sources */,
 				F648F081290936C700F00870 /* FeedController.swift in Sources */,

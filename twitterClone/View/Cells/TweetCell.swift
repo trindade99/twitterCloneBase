@@ -8,7 +8,7 @@
 import UIKit
 import EzImageLoader
 
-protocol TweetCellDelegate: class {
+protocol TweetCellDelegate: AnyObject {
     func handleProfileImageTapped(_ cell: TweetCell)
 }
 

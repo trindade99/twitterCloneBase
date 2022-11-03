@@ -41,7 +41,6 @@ class FeedController: UICollectionViewController {
 //    MARK: - API
     func fetchTweets() {
         TweetService.shared.fetchTweets { tweets in
-            print("DEBUG: Tweets are \(tweets)")
             self.tweets = tweets
         }
     }
@@ -97,8 +96,8 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
 
 extension FeedController: TweetCellDelegate {
     func handleProfileImageTapped(_ cell: TweetCell) {
-//        cell.tweet?.user
         let vc = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
+        vc.user = cell.tweet?.user
         navigationController?.pushViewController(vc, animated: true)
     }
 }

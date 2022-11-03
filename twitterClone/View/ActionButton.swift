@@ -94,6 +94,18 @@ class ActionButton: UIButton {
             super.layoutIfNeeded()
             super.layer.cornerRadius = super.frame.size.height/2
             super.layer.masksToBounds = true
+            
+        case .follow:
+            super.backgroundColor = .white
+            if let title = title {
+                super.setTitle(title, for: .normal)
+                super.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+                super.setTitleColor(.mainBlue, for: .normal)
+                super.titleLabel?.adjustsFontSizeToFitWidth = true
+            }
+            super.layer.borderColor = UIColor.mainBlue.cgColor
+            super.layer.borderWidth = 1.2
+            
         }
         
     }
@@ -107,5 +119,6 @@ extension ActionButton {
         case titleColor
         case onlyTitle
         case profileImage
+        case follow
     }
 }

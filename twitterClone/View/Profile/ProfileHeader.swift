@@ -8,9 +8,15 @@
 import UIKit
 import EzImageLoader
 
+protocol ProfileHeaderDelegate: AnyObject {
+    func handleDissmissal()
+}
+
 class ProfileHeader: UICollectionReusableView {
     
 //    MARK: - Proprieties
+    
+    weak var delegate: ProfileHeaderDelegate?
     
     private let filterBar = ProfileFilterView()
     let filterBarOptionsCounter = ProfileFilterOptions.allCases.count
@@ -29,7 +35,7 @@ class ProfileHeader: UICollectionReusableView {
         backButton.anchor(top: view.topAnchor, left: view.leftAnchor,
                           paddingTop: 42, paddingLeft: 16)
         backButton.setDimensions(width: 30, height: 30)
-        backButton.addTarget(self, action: #selector(backHandler), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(dissmissHandler), for: .touchUpInside)
         
         return view
     }()
@@ -171,8 +177,8 @@ class ProfileHeader: UICollectionReusableView {
     
 //    MARK: - Selectors
     
-    @objc func backHandler() {
-        
+    @objc func dissmissHandler() {
+        delegate?.handleDissmissal()
     }
     
     @objc func editProfileFollowHandler() {

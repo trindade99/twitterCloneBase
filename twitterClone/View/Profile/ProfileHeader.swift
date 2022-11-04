@@ -62,6 +62,18 @@ class ProfileHeader: UICollectionReusableView {
         return label
     }()
     
+    private let underlineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
+    private let underlineViewSelected: UIView = {
+        let view = UIView()
+        view.backgroundColor = .mainBlue
+        return view
+    }()
+    
     
 //    MARK: - Lifecycle
     
@@ -105,8 +117,13 @@ class ProfileHeader: UICollectionReusableView {
         stack.anchor(top: editFollowButton.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 12, paddingLeft: 12, paddingRight: 12)
         
         addSubview(filterBar)
-//        filterBar.delegate = self
+        filterBar.delegate = self
         filterBar.anchor(top: stack.bottomAnchor ,left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 8)
+        
+        addSubview(underlineView)
+        underlineView.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width, height: 1)
+        addSubview(underlineViewSelected)
+        underlineViewSelected.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width/3, height: 2)
     }
     
     private func configureUserData() {
@@ -127,5 +144,16 @@ class ProfileHeader: UICollectionReusableView {
     
     @objc func editProfileFollowHandler() {
         
+    }
+}
+
+//  MARK: - ProfileFilterViewDelegate
+extension ProfileHeader: ProfileFilterViewDelegate {
+    func filterView(_ view: ProfileFilterView, didSelect indexPath: IndexPath) {
+        guard let cell = view.collectionView.cellForItem(at: indexPath) as? ProfileFilterCell else { return }
+        let xPosition = cell.frame.origin.x
+        UIView.animate(withDuration: 0.3) {
+            self.underlineViewSelected.frame.origin.x = xPosition
+        }
     }
 }

@@ -13,6 +13,7 @@ class ProfileHeader: UICollectionReusableView {
 //    MARK: - Proprieties
     
     private let filterBar = ProfileFilterView()
+    let filterBarOptionsCounter = ProfileFilterOptions.allCases.count
     
     public var user: User? {
         didSet {
@@ -123,7 +124,7 @@ class ProfileHeader: UICollectionReusableView {
         addSubview(underlineView)
         underlineView.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width, height: 1)
         addSubview(underlineViewSelected)
-        underlineViewSelected.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width/3, height: 2)
+        underlineViewSelected.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width/Double(filterBarOptionsCounter), height: 2)
     }
     
     private func configureUserData() {

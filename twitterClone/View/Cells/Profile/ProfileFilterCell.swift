@@ -9,12 +9,18 @@ import UIKit
 
 class ProfileFilterCell: UICollectionViewCell {
 //    MARK: - Properties
+    
+    private var option: ProfileFilterOptions? {
+        didSet {
+            titleLabel.text = option?.description
+        }
+    }
 
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Label"
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
         
@@ -36,5 +42,9 @@ class ProfileFilterCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 //    MARK: - Helpers
+    func setOption(option: ProfileFilterOptions?) {
+        guard let option = option else { return }
+        self.option = option
+    }
 }
 

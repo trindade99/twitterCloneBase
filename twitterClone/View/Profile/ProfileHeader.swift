@@ -15,7 +15,7 @@ class ProfileHeader: UICollectionReusableView {
     private let filterBar = ProfileFilterView()
     let filterBarOptionsCounter = ProfileFilterOptions.allCases.count
     
-    public var user: User? {
+    public var viewModel: ProfileHeaderViewModel? {
         didSet {
             configureUserData()
         }
@@ -75,6 +75,28 @@ class ProfileHeader: UICollectionReusableView {
         return view
     }()
     
+    private lazy var followingLabel: UILabel = {
+       let label = UILabel()
+        
+        label.text = "O following"
+        label.font = UIFont.systemFont(ofSize: 14)
+        let followTap = UITapGestureRecognizer(target: self, action: #selector(followingTappedHandler))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(followTap)
+        return label
+    }()
+    
+    private lazy var followersLabel: UILabel = {
+       let label = UILabel()
+        
+        label.text = "2  followers"
+        label.font = UIFont.systemFont(ofSize: 14)
+        let followTap = UITapGestureRecognizer(target: self, action: #selector(followersTappedHandler))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(followTap)
+        return label
+    }()
+    
     
 //    MARK: - Lifecycle
     
@@ -117,9 +139,15 @@ class ProfileHeader: UICollectionReusableView {
         addSubview(stack)
         stack.anchor(top: editFollowButton.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 12, paddingLeft: 12, paddingRight: 12)
         
+        let followStack = UIStackView(arrangedSubviews: [followingLabel,followersLabel])
+        followStack.axis = .horizontal
+        followStack.spacing = 8
+        addSubview(followStack)
+        followStack.anchor(top: stack.bottomAnchor, left: stack.leftAnchor, paddingTop: 8)
+        
         addSubview(filterBar)
         filterBar.delegate = self
-        filterBar.anchor(top: stack.bottomAnchor ,left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 8)
+        filterBar.anchor(top: followStack.bottomAnchor ,left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 8)
         
         addSubview(underlineView)
         underlineView.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width, height: 1)
@@ -128,12 +156,16 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     private func configureUserData() {
-        guard let user = user else { return }
-
-        imageView.configureImage(image: ImageLoader.getASync(user.profileImageUrl)?.withRenderingMode(.alwaysOriginal) ?? UIImage())
+        guard let viewModel = viewModel else { return }
+        
+        imageView.configureImage(image: ImageLoader.getASync(viewModel.user.profileImageUrl)?.withRenderingMode(.alwaysOriginal) ?? UIImage())
         imageView.layer.cornerRadius = 80/2
-        userFullNameLabel.text = user.fullname
-        userNameLabel.text = "@\(user.username)"
+        userFullNameLabel.text = viewModel.user.fullname
+        userNameLabel.text = "@\(viewModel.user.username)"
+        editFollowButton.setTitle(viewModel.actionButtonTile, for: .normal)
+        
+        followersLabel.attributedText = viewModel.followersString
+        followingLabel.attributedText = viewModel.followingString
         
     }
     
@@ -144,6 +176,14 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     @objc func editProfileFollowHandler() {
+        
+    }
+    
+    @objc func followingTappedHandler() {
+        
+    }
+    
+    @objc func followersTappedHandler() {
         
     }
 }

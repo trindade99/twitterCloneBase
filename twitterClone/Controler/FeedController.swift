@@ -12,12 +12,8 @@ private let reuseIdentifier = "TweetCell"
 
 class FeedController: UICollectionViewController {
 //    MARK: - Properties
-    let profileImageButtom = ActionButton()
-    var user: User? {
-        didSet {
-            print("DEBUG: loaded user in feedController")
-        }
-    }
+    private let profileImageButtom = ActionButton()
+    private let user: User?
     
     private var tweets = [Tweet]() {
         didSet{
@@ -25,6 +21,15 @@ class FeedController: UICollectionViewController {
         }
     }
 //    MARK: - Lifecycle
+    init(user: User?) {
+        self.user = user
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        navigationController?.navigationBar.isHidden = false
@@ -96,8 +101,8 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
 
 extension FeedController: TweetCellDelegate {
     func handleProfileImageTapped(_ cell: TweetCell) {
-        let vc = ProfileController(collectionViewLayout: UICollectionViewFlowLayout())
-        vc.user = cell.tweet?.user
+        guard let user = cell.tweet?.user else { return }
+        let vc = ProfileController(user: user)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

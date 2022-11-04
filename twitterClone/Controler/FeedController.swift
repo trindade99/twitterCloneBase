@@ -7,6 +7,8 @@
 
 import UIKit
 import EzImageLoader
+#warning("DONT DO THIS")
+import Firebase
 
 private let reuseIdentifier = "TweetCell"
 
@@ -64,12 +66,23 @@ class FeedController: UICollectionViewController {
         profileImageButtom.changeStyle(buttonStyle: .profileImage)
         profileImageButtom.changeImage(image: ImageLoader.getASync(user?.profileImageUrl ?? "")?.withRenderingMode(.alwaysOriginal))
         profileImageButtom.layer.cornerRadius = 32/2
+        profileImageButtom.addTarget(self, action: #selector(logUSerOut), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageButtom)
         
         let imageView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
         imageView.contentMode = .scaleAspectFit
         imageView.setDimensions(width: 44, height: 44)
         navigationItem.titleView = imageView
+    }
+    
+    #warning("DONT DO THIS")
+    @objc func logUSerOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print("DEBUG: failed to sign out with error \(error.localizedDescription)")
+
+        }
     }
 
 }

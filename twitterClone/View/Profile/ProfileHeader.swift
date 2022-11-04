@@ -12,6 +12,8 @@ class ProfileHeader: UICollectionReusableView {
     
 //    MARK: - Proprieties
     
+    private let filterBar = ProfileFilterView()
+    
     public var user: User? {
         didSet {
             configureUserData()
@@ -101,6 +103,10 @@ class ProfileHeader: UICollectionReusableView {
         stack.spacing = 4
         addSubview(stack)
         stack.anchor(top: editFollowButton.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 12, paddingLeft: 12, paddingRight: 12)
+        
+        addSubview(filterBar)
+//        filterBar.delegate = self
+        filterBar.anchor(top: stack.bottomAnchor ,left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 8)
     }
     
     private func configureUserData() {

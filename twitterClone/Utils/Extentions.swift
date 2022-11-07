@@ -133,3 +133,24 @@ extension UIColor {
     static let customRed = UIColor.rgb(red: 220, green: 78, blue: 65)
     static let customPurple = UIColor.rgb(red: 128, green: 87, blue: 194)
 }
+
+
+extension UIViewController {
+    func tabBarStyling() -> UITabBarAppearance {
+        let tabBarApperance = UITabBarAppearance()
+        tabBarApperance.configureWithOpaqueBackground()
+        tabBarApperance.backgroundColor = UIColor.white
+        
+        return tabBarApperance
+    }
+    
+    func navBarStyling() -> UINavigationBarAppearance {
+        let navigationBarAppearance = UINavigationBarAppearance()
+                        navigationBarAppearance.configureWithOpaqueBackground()
+                        navigationBarAppearance.titleTextAttributes = [
+                            NSAttributedString.Key.foregroundColor : UIColor.white
+                        ]
+                        navigationBarAppearance.backgroundColor = UIColor.white
+        return navigationBarAppearance
+    }
+}

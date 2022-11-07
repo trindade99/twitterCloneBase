@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F62B9C10291935710024F5A2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62B9C0F291935710024F5A2 /* UserCell.swift */; };
 		F648F04929092B6D00F00870 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F648F04829092B6D00F00870 /* AppDelegate.swift */; };
 		F648F04B29092B6D00F00870 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F648F04A29092B6D00F00870 /* SceneDelegate.swift */; };
 		F648F05029092B6D00F00870 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F648F04E29092B6D00F00870 /* Main.storyboard */; };
@@ -93,6 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F62B9C0F291935710024F5A2 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		F648F04529092B6D00F00870 /* twitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F648F04829092B6D00F00870 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F648F04A29092B6D00F00870 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		F6AFB696291294BD00F7B4F9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F62B9C0F291935710024F5A2 /* UserCell.swift */,
 				F65C2295291537A00008AE59 /* Profile */,
 				F6AFB697291294C800F7B4F9 /* TweetCell.swift */,
 			);
@@ -532,6 +535,7 @@
 				F6AFB69C2912D6B000F7B4F9 /* ProfileController.swift in Sources */,
 				F648F0872909381700F00870 /* ConversationsController.swift in Sources */,
 				F6ED90B32914160000BA01B4 /* BackHeaderButton.swift in Sources */,
+				F62B9C10291935710024F5A2 /* UserCell.swift in Sources */,
 				F648F04929092B6D00F00870 /* AppDelegate.swift in Sources */,
 				F648F04B29092B6D00F00870 /* SceneDelegate.swift in Sources */,
 				F648F081290936C700F00870 /* FeedController.swift in Sources */,

@@ -164,10 +164,10 @@ class ProfileHeader: UICollectionReusableView {
     private func configureUserData() {
         guard let viewModel = viewModel else { return }
         
-        imageView.configureImage(image: ImageLoader.getASync(viewModel.user.profileImageUrl)?.withRenderingMode(.alwaysOriginal) ?? UIImage())
+        imageView.configureImage(image: ImageLoader.getASync(viewModel.profileImageUrl)?.withRenderingMode(.alwaysOriginal) ?? UIImage())
         imageView.layer.cornerRadius = 80/2
-        userFullNameLabel.text = viewModel.user.fullname
-        userNameLabel.text = "@\(viewModel.user.username)"
+        userFullNameLabel.text = viewModel.fullName
+        userNameLabel.text = viewModel.userName
         editFollowButton.setTitle(viewModel.actionButtonTile, for: .normal)
         
         followersLabel.attributedText = viewModel.followersString

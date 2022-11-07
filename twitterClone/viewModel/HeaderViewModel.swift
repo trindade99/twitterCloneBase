@@ -28,6 +28,10 @@ struct ProfileHeaderViewModel {
 //    MARK: - Properties
     let user: User
     
+    let userName: String
+    let fullName: String
+    let profileImageUrl: String
+    
     var followersString: NSAttributedString? {
         return attributedText(withValue: 0, text: "Followers")
     }
@@ -47,6 +51,9 @@ struct ProfileHeaderViewModel {
 //    MARK: - Lifecycle
     init(user: User) {
         self.user = user
+        self.userName = "@" + user.username
+        self.fullName = user.fullname
+        self.profileImageUrl = user.profileImageUrl
     }
     
     fileprivate func attributedText(withValue value: Int, text: String) -> NSAttributedString {

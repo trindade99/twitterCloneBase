@@ -15,11 +15,17 @@ class ProfileController: UICollectionViewController {
     
 //    MARK: - Properties
     
-    private let user: User?
+    private let user: User
+    
+    private var tweets = [Tweet]() {
+        didSet{
+            collectionView.reloadData()
+        }
+    }
     
 //    MARK: - Lifecycle
     
-    init(user: User?) {
+    init(user: User) {
         self.user = user
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -37,6 +43,15 @@ class ProfileController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchTweets()
+        
+    }
+//    API
+    
+    func fetchTweets() {
+        TweetService.shared.fetchTweets(forUser: user) { tweets in
+            self.tweets = tweets
+        }
         
     }
     
@@ -54,11 +69,12 @@ class ProfileController: UICollectionViewController {
 //  MARK: - CollectionViewDataSource
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return tweets.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TweetCell
+        cell.tweet = tweets[indexPath.row]
         return cell
     }
 }
@@ -67,9 +83,7 @@ extension ProfileController {
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseHeaderIdentifier, for: indexPath) as! ProfileHeader
-        if let user = user {
-            header.viewModel = ProfileHeaderViewModel(user: user)
-        }
+        header.viewModel = ProfileHeaderViewModel(user: user)
         header.delegate = self
         return header
     }

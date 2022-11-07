@@ -40,6 +40,7 @@ class FeedController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavTabBars()
         configureUI()
         fetchTweets()
         configureHeader()
@@ -54,6 +55,24 @@ class FeedController: UICollectionViewController {
     
     
 //    MARK: - Helpers
+    
+    func configureNavTabBars() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+                        navigationBarAppearance.configureWithOpaqueBackground()
+                        navigationBarAppearance.titleTextAttributes = [
+                            NSAttributedString.Key.foregroundColor : UIColor.white
+                        ]
+                        navigationBarAppearance.backgroundColor = UIColor.white
+                        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+                        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+                        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+                    
+        let tabBarApperance = UITabBarAppearance()
+        tabBarApperance.configureWithOpaqueBackground()
+        tabBarApperance.backgroundColor = UIColor.white
+        UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
+        UITabBar.appearance().standardAppearance = tabBarApperance
+    }
     
     func configureUI() {
         view.backgroundColor = .white
